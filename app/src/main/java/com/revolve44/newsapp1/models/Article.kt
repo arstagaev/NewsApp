@@ -1,6 +1,13 @@
-package com.revolve44.newsapp1
+package com.revolve44.newsapp1.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity(tableName = "article")
 data class Article(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
     val author: Any,
     val content: String,
     val description: String,

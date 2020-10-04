@@ -1,6 +1,4 @@
-package com.revolve44.newsapp1
-
-import com.revolve44.newsapp1.Article
+package com.revolve44.newsapp1.models
 
 data class NewsResponse(
     val articles: List<Article>,

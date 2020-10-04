@@ -1,6 +1,6 @@
 package com.revolve44.newsapp1.api
 
-import com.revolve44.newsapp1.NewsResponse
+import com.revolve44.newsapp1.models.NewsResponse
 import com.revolve44.newsapp1.ui.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

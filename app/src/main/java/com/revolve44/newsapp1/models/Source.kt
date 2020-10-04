@@ -1,4 +1,4 @@
-package com.revolve44.newsapp1
+package com.revolve44.newsapp1.models
 
 data class Source(
     val id: Any,
