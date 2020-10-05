@@ -3,6 +3,7 @@ package com.revolve44.newsapp1.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -40,14 +41,24 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>(
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+    private  var onItemClickListener: ((Article) -> Unit)? = null
+
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
             Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-
+            tvSource.text = article.source.name
+            tvTitle.text = article.title
+            tvPublishedAt.text = article.publishedAt
+             setOnClickListener{
+                 onItemClickListener?.let { it(article) }
+             }
         }
     }
 
+    fun setOnItemClickListener(listener: (Article) -> Unit){
+        onItemClickListener = listener
+    }
 
 }
